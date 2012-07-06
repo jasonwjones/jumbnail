@@ -11,7 +11,7 @@ public class ThumbnailApp {
 	private String outputFolder;
 	
 	@Parameter(names = {"-skipExisting", "-s"}, description = "Skip conversion if the target file exists.", required = false)
-	private boolean skipExisting = true;
+	private boolean skipExisting = false;
 
 	@Parameter(names = {"-width", "-w"}, description = "Width of output file", required = true)
 	private int width;

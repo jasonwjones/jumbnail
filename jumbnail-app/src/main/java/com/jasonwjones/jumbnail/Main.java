@@ -48,20 +48,23 @@ public class Main {
 			String outFile = outputDirectory + File.separator + image.getName();
 			
 			File checkFile = new File(outFile);
+			boolean makeImage = true;
 			
-			if (ta.isSkipExisting()) {
-				if (checkFile.exists()) {
-					System.out.print("-");
-				}				
-			} else {
+			if (ta.isSkipExisting() && checkFile.exists()) {
+				makeImage = false;
+			} 
+			
+			if (makeImage) {
 				int width = ta.getWidth();
 				int height = ta.getHeight();
 				
 				th.createThumbnail(inFile, outFile, width, height);
 				System.out.print(".");
-			}			
+			} else {		
+				System.out.print("-");
+			}
 		}
-
+		System.out.println();
 	}
 
 }
