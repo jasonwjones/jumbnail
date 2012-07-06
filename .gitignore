@@ -1,0 +1,8 @@
+# OS X noise
+.DS_Store
+
+# Maven/Java
+target/
+.classpath
+.project
+.settings/
