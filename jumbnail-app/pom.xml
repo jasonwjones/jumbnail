@@ -4,6 +4,14 @@
   <version>0.0.1</version>
   <name>Jumbnail App</name>
   <description>A quick and dirty program for creating thumbnails for the S4M website.</description>
+
+  <parent>
+  		<groupId>com.jasonwjones.jumbnail</groupId>
+  		<artifactId>jumbnail-parent</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<relativePath>../jumbnail-parent</relativePath>
+  </parent>
+  
   <dependencies>
   	<dependency>
   		<groupId>com.beust</groupId>
@@ -24,9 +32,11 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.jasonwjones.web.Main</mainClass>
+							<mainClass>com.jasonwjones.jumbnail.Main</mainClass>
 						</manifest>
 					</archive>
+					<finalName>jumbnail</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
@@ -42,10 +52,4 @@
 			</plugin>
 		</plugins>
   	</build>
-  	<parent>
-  		<groupId>com.jasonwjones.jumbnail</groupId>
-  		<artifactId>jumbnail-parent</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  		<relativePath>../jumbnail-parent</relativePath>
-  	</parent>
 </project>
