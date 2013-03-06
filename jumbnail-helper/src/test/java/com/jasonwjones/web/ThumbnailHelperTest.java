@@ -1,6 +1,6 @@
 package com.jasonwjones.web;
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
