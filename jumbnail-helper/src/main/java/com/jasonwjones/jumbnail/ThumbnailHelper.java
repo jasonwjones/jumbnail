@@ -15,9 +15,9 @@ public class ThumbnailHelper {
 
 	private static final Logger logger = LoggerFactory.getLogger(ThumbnailHelper.class);
 
-	public BufferedImage createThumbnail(String filename, int pixelWidth, int pixelHeight) throws Exception {
+	public BufferedImage createThumbnail(String inputFilename, int pixelWidth, int pixelHeight) throws Exception {
 
-		BufferedImage sourceImage = ImageIO.read(new File(filename));
+		BufferedImage sourceImage = ImageIO.read(new File(inputFilename));
 
 		BufferedImage image = new BufferedImage(pixelWidth, pixelHeight, BufferedImage.TYPE_INT_RGB);
 		Graphics2D graphics = image.createGraphics();
@@ -36,14 +36,18 @@ public class ThumbnailHelper {
 		return image;
 	}
 
-	public void createThumbnail(String filename, String outputFilename, int pixelWidth,
-			int pixelHeight) {
+	public void createThumbnail(String filename, String outputFilename, int pixelWidth, int pixelHeight) {
 		try {
 			BufferedImage resized = createThumbnail(filename, pixelWidth, pixelHeight);
 			ImageIO.write(resized, "jpg", new File(outputFilename));
 		} catch (Exception e) {
 			logger.error("Could not generate thumbnail: {}", e.getMessage());
 		}
+	}
+
+	public void createThumbnail(String inputFile, File outputFile, int width, int height) throws Exception {
+		BufferedImage resized = createThumbnail(inputFile, width, height);
+		ImageIO.write(resized, "jpg", outputFile);
 	}
 
 }
